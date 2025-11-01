@@ -2,6 +2,10 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def home(request):
-    return HttpResponse('<h1>Welcome to the Home Page</h1>')
+    searchTerm = request.GET.get('searchMovie')
+    return render(request, 'movie/home.html', {'searchTerm': searchTerm} )
+
+def about(request):
+    return HttpResponse('<h1>Welcome to About Page </h1>')
 
 # Create your views here.
